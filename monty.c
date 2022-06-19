@@ -1,6 +1,5 @@
 #include "monty.h"
 
-glob_t global = {NULL, NULL};
 /**
  * main - Entry point
  * @argc: Number of arguments
@@ -9,6 +8,9 @@ glob_t global = {NULL, NULL};
  */
 int main(int argc, char *argv[])
 {
+	_mode = 1;
+	glob_t global = {NULL, NULL}
+
 	if (argc == 2)
 		handle_command(argv[1]);
 	else
@@ -25,7 +27,8 @@ int main(int argc, char *argv[])
  */
 void handle_command(char *argv)
 {
-	int count = 0, result = 0;
+	unsigned int count = 0;
+	int result = 0;
 	size_t bufsize = 0;
 	char *arguments = NULL, *item = NULL;
 	stack_t *stack = NULL;
@@ -91,7 +94,6 @@ int get_opc(stack_t **stack, char *arg, char *item, int count)
 		{"queue", _qmode},
 		{NULL, NULL}
 	};
-
 	while (op[i].opcode)
 	{
 		if (!strcmp(arg, op[i].opcode))
@@ -103,13 +105,12 @@ int get_opc(stack_t **stack, char *arg, char *item, int count)
 				else
 					return (1);
 			}
-			op[i].f(stack, unsigned int count);
+			op[i].f(stack, count);
 			break;
 		}
 		i++;
 	}
 	if (!op[i].opcode)
 		return (2);
-
 	return (0);
 }

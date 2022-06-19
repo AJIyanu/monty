@@ -13,7 +13,7 @@ int counter(stack_t **stack)
 
 	if (ptr == NULL)
 		return (0);
-	while(ptr != NULL)
+	while (ptr != NULL)
 	{
 		ptr = ptr->next;
 		count++;
@@ -22,7 +22,7 @@ int counter(stack_t **stack)
 }
 
 /**
- * _swap: swaps the topmost
+ * _swap - changes the topmost
  * @stack: addrress
  * @line_number: mode
  *
@@ -42,15 +42,15 @@ void _swap(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
-		while(ptr->next != NULL)
+		while (ptr->next != NULL)
 			ptr = ptr->next;
 		temp = ptr->n;
 		ptr->n = (ptr->prev)->n;
 		(ptr->prev)->n = temp;
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		temp = ptr->n;
 		ptr->n = (ptr->next)->n;
@@ -77,7 +77,7 @@ void _add(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -87,7 +87,7 @@ void _add(stack_t **stack, unsigned int line_number)
 		free(ptr->next);
 		ptr->next = NULL;
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		ptr = ptr->next;
 		added = ptr->n + (ptr->prev)->n;
@@ -106,6 +106,7 @@ void _add(stack_t **stack, unsigned int line_number)
 void _nop(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
+
 	ptr = NULL;
 }
 
@@ -128,7 +129,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -137,7 +138,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 		ptr->n = subbed;
 		_pop(stack, line_number);
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		ptr = ptr->next;
 		subbed = ptr->n - ptr->prev->n;

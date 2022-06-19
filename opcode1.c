@@ -9,6 +9,7 @@
 stack_t *create_node(int num)
 {
 	stack_t *new = malloc(sizeof(stack_t));
+
 	if (new == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
@@ -67,14 +68,14 @@ void _pop(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 		(ptr->prev)->next = NULL;
 		free(ptr);
 	}
-	else if (mode == 2)
+	else if (_mode == 2)
 	{
 		temp = ptr;
 		ptr = ptr->next;
@@ -96,7 +97,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 
-	if (ptr != NULL && mode == 1)
+	if (ptr != NULL && _mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -106,7 +107,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 			ptr = ptr->prev;
 		}
 	}
-	else if (ptr != NULL && mode == 2)
+	else if (ptr != NULL && _mode == 2)
 	{
 		while (ptr != NULL)
 		{
@@ -134,7 +135,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;

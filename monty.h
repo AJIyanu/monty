@@ -9,8 +9,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-
-int mode = 1;
+int _mode;
 int number;
 
 /**

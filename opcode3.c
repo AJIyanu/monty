@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - division oooo
+ * _div - division oooo
  * @stack: list address
  * @line_number: line
  *
@@ -19,7 +19,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -34,7 +34,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		ptr->n = dived;
 		_pop(stack, line_number);
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		if (ptr->n == 0)
 		{
@@ -50,7 +50,7 @@ void _div(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul - multiplies
+ * _mul - multiplies
  * @stack: list address
  * @line_number: line
  *
@@ -68,16 +68,16 @@ void _mul(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
-		while (ptr->n != NULL)
+		while (ptr->next != NULL)
 			ptr = ptr->next;
 		ptr = ptr->prev;
 		muled = (ptr->n) * ((ptr->next)->n);
 		ptr->n = muled;
 		_pop(stack, line_number);
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		ptr = ptr->next;
 		muled = (ptr->n) * ((ptr->prev)->n);
@@ -87,7 +87,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod - modulus
+ * _mod - modulus
  * @stack: list address
  * @line_number: line
  *
@@ -99,13 +99,13 @@ void _mod(stack_t **stack, unsigned int line_number)
 	stack_t *ptr = *stack;
 	int moded;
 
-	if (counter < 2)
+	if (counter(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -120,7 +120,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 		ptr->n = moded;
 		_pop(stack, line_number);
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
 		if (ptr->n == 0)
 		{
@@ -153,13 +153,13 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 		putchar(ptr->n);
 	}
-	if (mode == 2)
+	if (_mode == 2)
 		putchar(ptr->n);
 }
 
@@ -175,19 +175,19 @@ void _pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 
-	if (mode == 1)
+	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
-		while(ptr->n > 31 && ptr->n < 128)
+		while (ptr->n > 31 && ptr->n < 128)
 		{
 			putchar(ptr->n);
 			ptr = ptr->prev;
 		}
 	}
-	if (mode == 2)
+	if (_mode == 2)
 	{
-		while (ptr->n > 31 && ptr-> < 128)
+		while (ptr->n > 31 && ptr->n < 128)
 		{
 			putchar(ptr->n);
 			ptr = ptr->next;
