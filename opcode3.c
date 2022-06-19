@@ -8,7 +8,7 @@
  * Return: void
  */
 
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int dived;
@@ -136,14 +136,14 @@ void _mod(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pchar - character
+ * _pchar - character
  * @stack: list address
  * @line_number: command line
  *
  * Return: void
  */
 
-void pchar(stack_t **stack, unsigned int line_number)
+void _pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 
@@ -164,14 +164,14 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr - string
+ * _pstr - string
  * @stack: list addrress
  * @line_number: cmd line
  *
  * Return: void
  */
 
-void pstr(stack_t **stack, unsigned int line_number)
+void _pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 

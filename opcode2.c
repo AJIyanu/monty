@@ -8,7 +8,7 @@
 
 int counter(stack_t **stack)
 {
-	stact_t *ptr = *stack;
+	stack_t *ptr = *stack;
 	int count = 0;
 
 	if (ptr == NULL)

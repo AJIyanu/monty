@@ -19,7 +19,7 @@ stack_t *create_node(int num)
 	new->prev = NULL;
 	new->n = num;
 
-	return (new)
+	return (new);
 }
 
 /**
@@ -39,18 +39,12 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (ptr == NULL)
 		*stack = newnode;
-	else if (mode == 1 && ptr != NULL)
+	else
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 		ptr->next = newnode;
 		newnode->prev = ptr;
-	}
-	else if (mode == 2 && ptr != NULL)
-	{
-		newnode->next = ptr;
-		ptr->prev = newnode;
-		*stack = newnode;
 	}
 }
 
@@ -98,7 +92,7 @@ void _pop(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 
-void _pall(stack_t, **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 
