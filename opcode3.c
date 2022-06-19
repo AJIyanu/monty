@@ -188,7 +188,8 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 	}
 	else if (ptr->next == NULL)
 	{
-		putchar(ptr->n);
+		if (ptr->n > 0 && ptr->n < 128)
+			putchar(ptr->n);
 		putchar('\n');
 	}
 	else if (_mode == 1)
