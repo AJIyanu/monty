@@ -171,7 +171,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 
-void _pstr(stack_t **stack, unsigned int line_number)
+void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
 

@@ -105,9 +105,7 @@ void _add(stack_t **stack, unsigned int line_number)
  */
 void _nop(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
-	stack_t *ptr = *stack;
-
-	ptr = NULL;
+	stack_t __attribute__ ((unused)) *ptr = *stack;
 }
 
 /**

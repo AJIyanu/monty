@@ -9,7 +9,6 @@
 int main(int argc, char *argv[])
 {
 	_mode = 1;
-	glob_t global = {NULL, NULL}
 
 	if (argc == 2)
 		handle_command(argv[1]);

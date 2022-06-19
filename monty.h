@@ -1,6 +1,8 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+#define _POSIX_C_SOURCE  200809L
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -75,7 +77,7 @@ typedef struct glob_s
 	char *line;
 } glob_t;
 
-extern glob_t global;
+glob_t global;
 void free_dlistint(stack_t *stack);
 void cleanStack(stack_t **stack);
 

@@ -31,7 +31,7 @@ stack_t *create_node(int num)
  * Return: void
  */
 
-void _push(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *newnode = NULL;
 	stack_t *ptr = *stack;
@@ -93,7 +93,7 @@ void _pop(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 
-void _pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
 

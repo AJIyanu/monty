@@ -8,7 +8,7 @@
 
 void _smode(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
-	stack_t *ptr = *stack;
+	stack_t __attribute__ ((unused)) *ptr = *stack;
 
 	_mode = 1;
 }
@@ -21,7 +21,7 @@ void _smode(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 
 void _qmode(stack_t **stack, unsigned int __attribute__((unused)) line_number)
 {
-	stack_t *ptr = *stack;
+	stack_t __attribute__ ((unused)) *ptr = *stack;
 
 	_mode = 2;
 }
