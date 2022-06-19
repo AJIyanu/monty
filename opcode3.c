@@ -161,6 +161,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	}
 	if (_mode == 2)
 		putchar(ptr->n);
+	putchar('\n');
 }
 
 /**

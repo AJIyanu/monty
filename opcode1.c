@@ -73,7 +73,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 		free(ptr);
 		*stack = NULL;
 	}
-	if (_mode == 1)
+	else if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
