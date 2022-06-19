@@ -182,7 +182,9 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
 
-	if (_mode == 1)
+	if (ptr->next == NULL)
+		putchar('\n');
+	else if (_mode == 1 && ptr != NULL)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -192,7 +194,7 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 			ptr = ptr->prev;
 		}
 	}
-	if (_mode == 2)
+	else if (_mode == 2 && ptr != NULL)
 	{
 		while (ptr->n > 31 && ptr->n < 128)
 		{
