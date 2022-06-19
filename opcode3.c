@@ -182,25 +182,33 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
 
-	if (ptr->next == NULL)
+	if (ptr == NULL)
+	{
 		putchar('\n');
-	else if (_mode == 1 && ptr != NULL)
+	}
+	else if (ptr->next == NULL)
+	{
+		putchar(ptr->n);
+		putchar('\n');
+	}
+	else if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
-		while (ptr->n > 31 && ptr->n < 128)
+		while (ptr->n > 0 && ptr->n < 128)
 		{
 			putchar(ptr->n);
 			ptr = ptr->prev;
 		}
+		putchar('\n');
 	}
-	else if (_mode == 2 && ptr != NULL)
+	else if (_mode == 2)
 	{
 		while (ptr->n > 31 && ptr->n < 128)
 		{
 			putchar(ptr->n);
 			ptr = ptr->next;
 		}
+		putchar('\n');
 	}
-	putchar('\n');
 }
