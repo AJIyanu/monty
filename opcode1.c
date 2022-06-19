@@ -68,6 +68,11 @@ void _pop(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	if (ptr->next == NULL)
+	{
+		free(ptr);
+		*stack = NULL;
+	}
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
