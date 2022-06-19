@@ -153,6 +153,12 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	if (ptr->n > 127 || ptr->n < 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		cleanStack(stack);
+		exit(EXIT_FAILURE);
+	}
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
