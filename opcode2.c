@@ -71,7 +71,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	stack_t *ptr = *stack;
 	int added;
 
-	if (count(stack) < 2)
+	if (counter(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		cleanStack(stack);
@@ -122,7 +122,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	stack_t *ptr = *stack;
 	int subbed;
 
-	if (count(stack) < 2)
+	if (counter(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		cleanStack(stack);

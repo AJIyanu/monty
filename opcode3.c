@@ -13,7 +13,7 @@ void div(stack_t **stack, unsigned int line_number)
 	stack_t *ptr = *stack;
 	int dived;
 
-	if (count(stack) < 2)
+	if (counter(stack) < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		cleanStack(stack);
@@ -48,3 +48,18 @@ void div(stack_t **stack, unsigned int line_number)
 		_pop(stack, line_number);
 	}
 }
+
+/**
+ * mul - multiplies
+ * @stack: list address
+ * @line_number: line
+ *
+ * Return: void
+ */
+
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	int muled;
+
+	if (counter(stack) < 2)
