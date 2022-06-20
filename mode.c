@@ -44,3 +44,41 @@ void free_dlistint(stack_t *stack)
 	}
 }
 
+/**
+ * _rotl - takes the top to bottom
+ * @stack: list address
+ * line_number: cmd line
+ *
+ * Return: void
+ */
+
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	int temp = 0;
+
+	if (ptr != NULL && ptr->next != NULL)
+	{
+		if (_mode == 1)
+		{
+			while (ptr->next != NULL)
+				ptr = ptr->next;
+			temp = ptr->n;
+			number = temp;
+			_pop(stack, line_number);
+			_mode = 2;
+			_push(stack, line_number);
+			_mode = 1;
+		}
+		if (_mode == 2)
+		{
+			temp = ptr->n;
+			number = temp;
+			_pop(stack, line_number);
+			_mode = 1;
+			_push(stack, line_number);
+			_mode = 2;
+		}
+	}
+}
+

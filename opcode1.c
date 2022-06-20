@@ -40,12 +40,18 @@ void _push(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 
 	if (ptr == NULL)
 		*stack = newnode;
-	else
+	else if (_mode == 1)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
 		ptr->next = newnode;
 		newnode->prev = ptr;
+	}
+	else if (_mode == 2)
+	{
+		ptr->prev = newnode;
+		newnode->next = ptr;
+		*stack = newnode;
 	}
 }
 
