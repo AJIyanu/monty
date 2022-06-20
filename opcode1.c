@@ -108,7 +108,7 @@ void _pall(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
 
-	if (ptr != NULL && _mode == 1)
+	if (ptr != NULL)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
@@ -118,14 +118,16 @@ void _pall(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 			ptr = ptr->prev;
 		}
 	}
-	else if (ptr != NULL && _mode == 2)
-	{
-		while (ptr != NULL)
-		{
-			printf("%d\n", ptr->n);
-			ptr = ptr->next;
-		}
-	}
+/*
+ *	else if (ptr != NULL && _mode == 2)
+ *	{
+ *		while (ptr != NULL)
+ *		{
+ *			printf("%d\n", ptr->n);
+ *			ptr = ptr->next;
+ *		}
+ *	}
+ */
 }
 
 /**

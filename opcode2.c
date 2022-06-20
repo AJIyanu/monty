@@ -70,6 +70,7 @@ void _add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int added;
+	int tmode = _mode;
 
 	if (counter(stack) < 2)
 	{
@@ -77,6 +78,7 @@ void _add(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -96,6 +98,7 @@ void _add(stack_t **stack, unsigned int line_number)
 		ptr->prev = NULL;
 		*stack = ptr;
 	}
+	_mode = tmode;
 }
 
 /**
@@ -120,6 +123,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int subbed;
+	int tmode = _mode;
 
 	if (counter(stack) < 2)
 	{
@@ -127,6 +131,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -143,5 +148,6 @@ void _sub(stack_t **stack, unsigned int line_number)
 		ptr->n = subbed;
 		_pop(stack, line_number);
 	}
+	_mode = tmode;
 }
 

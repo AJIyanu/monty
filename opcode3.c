@@ -12,6 +12,7 @@ void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int dived;
+	int tmode = _mode;
 
 	if (counter(stack) < 2)
 	{
@@ -19,6 +20,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -47,6 +49,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		ptr->n = dived;
 		_pop(stack, line_number);
 	}
+	_mode = tmode;
 }
 
 /**
@@ -61,6 +64,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int muled;
+	int tmode = _mode;
 
 	if (counter(stack) < 2)
 	{
@@ -68,6 +72,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -84,6 +89,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 		ptr->n = muled;
 		_pop(stack, line_number);
 	}
+	_mode = tmode;
 }
 
 /**
@@ -98,6 +104,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int moded;
+	int tmode = _mode;
 
 	if (counter(stack) < 2)
 	{
@@ -105,6 +112,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -133,6 +141,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 		ptr->n = moded;
 		_pop(stack, line_number);
 	}
+	_mode = tmode;
 }
 
 /**
@@ -146,6 +155,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 void _pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
+	int tmode = _mode;
 
 	if (ptr == NULL)
 	{
@@ -159,6 +169,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 		cleanStack(stack);
 		exit(EXIT_FAILURE);
 	}
+	_mode = 1;
 	if (_mode == 1)
 	{
 		while (ptr->next != NULL)
@@ -168,6 +179,7 @@ void _pchar(stack_t **stack, unsigned int line_number)
 	if (_mode == 2)
 		putchar(ptr->n);
 	putchar('\n');
+	_mode = tmode;
 }
 
 /**
@@ -181,7 +193,9 @@ void _pchar(stack_t **stack, unsigned int line_number)
 void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 {
 	stack_t *ptr = *stack;
+	int tmode = _mode;
 
+	_mode = 1;
 	if (ptr == NULL)
 	{
 		putchar('\n');
@@ -212,4 +226,5 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 		}
 		putchar('\n');
 	}
+	_mode = tmode;
 }
