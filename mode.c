@@ -47,7 +47,7 @@ void free_dlistint(stack_t *stack)
 /**
  * _rotl - takes the top to bottom
  * @stack: list address
- * line_number: cmd line
+ * @line_number: cmd line
  *
  * Return: void
  */
@@ -84,6 +84,13 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	_mode = tmode;
 }
 
+/**
+ * _rotr - Aaaaa Peeee Ceee, from top to bottom in buhari's voice
+ * @stack: list address
+ * @line_number: cmd line
+ *
+ * Return: void
+ */
 
 void _rotr(stack_t **stack, unsigned int line_number)
 {
