@@ -214,6 +214,8 @@ void _pstr(stack_t **stack, unsigned int __attribute__ ((unused)) line_number)
 		{
 			putchar(ptr->n);
 			ptr = ptr->prev;
+			if (!ptr)
+				break;
 		}
 		putchar('\n');
 	}

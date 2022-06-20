@@ -56,6 +56,7 @@ void _rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;
 	int temp = 0;
+	int tmode = _mode;
 
 	if (ptr != NULL && ptr->next != NULL)
 	{
@@ -80,5 +81,25 @@ void _rotl(stack_t **stack, unsigned int line_number)
 			_mode = 2;
 		}
 	}
+	_mode = tmode;
 }
 
+
+void _rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr = *stack;
+	int temp = 0;
+	int tmode = _mode;
+
+	if (ptr != NULL && ptr->next != NULL)
+	{
+		temp = ptr->n;
+		number = temp;
+		_mode = 1;
+		_push(stack, line_number);
+		*stack = ptr->next;
+		(*stack)->prev = NULL;
+		free(ptr);
+		_mode = tmode;
+	}
+}
